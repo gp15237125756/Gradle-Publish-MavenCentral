@@ -1,0 +1,57 @@
+apply plugin: 'com.android.library'
+apply from: "${rootProject.projectDir}/scripts/publish-module.gradle"
+
+ext {
+    PUBLISH_GROUP_ID = 'io.github.Kino521'
+    PUBLISH_VERSION = '1.0.0'
+    PUBLISH_ARTIFACT_ID = 'next-sdk'
+    PUBLISH_DESCRIPTION = 'NEXT Android SDK'
+    PUBLISH_URL = 'https://github.com/Kino521/Hilt'
+    PUBLISH_LICENSE_NAME = 'GNU LESSER GENERAL PUBLIC LICENSE Version 3'
+    PUBLISH_LICENSE_URL =
+            'https://github.com/elye/loaderviewlibrary/blob/master/LICENSE'
+    PUBLISH_DEVELOPER_ID = 'Kino521'
+    PUBLISH_DEVELOPER_NAME = 'Kino521'
+    PUBLISH_DEVELOPER_EMAIL = 'zhikai.jin@bozhon.com'
+    PUBLISH_SCM_CONNECTION =
+            'scm:git:github.com/Kino521/Hilt.git'
+    PUBLISH_SCM_DEVELOPER_CONNECTION =
+            'scm:git:ssh://github.com/Kino521/Hilt.git'
+    PUBLISH_SCM_URL =
+            'https://github.com/Kino521/Hilt/tree/master'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        minSdkVersion 22
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
